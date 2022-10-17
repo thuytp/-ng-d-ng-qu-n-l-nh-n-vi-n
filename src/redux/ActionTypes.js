@@ -1,0 +1,15 @@
+export const LIST_STAFFS = "LIST_STAFFS";
+export const STAFF_DETAILS = "STAFF_DETAILS";
+export const ADD_STAFF = "ADD_STAFF";
+export const ADD_STAFFS = "ADD_STAFFS";
+export const STAFFS_LOADING = "STAFFS_LOADING";
+export const STAFFS_FAILED = "STAFFS_FAILED";
+export const DEPARTMENTS_LOADING = "DEPARMENTS_LOADING";
+export const ADD_DEPARTMENTS = "ADD_DEPARTMENTS";
+export const DEPARTMENTS_FAILED = "DEPARTMENTS_FAILED";
+export const SALARY_LOADING = "SALARY_LOADING";
+export const ADD_SALARY = "ADD_SALARY";
+export const SALARY_FAILED = "SALARY_FAILED";
+export const TOGGLE_FORM = "TOGGLE_FORM";
+export const SEARCH = "SEARCH";
+export const DELETE_STAFF = "DELETE_STAFF";
