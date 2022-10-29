@@ -7,7 +7,6 @@ import Header from "./Components/HeaderComponent";
 import Footer from "./Components/FooterComponent";
 import { Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { push } from "react-router-redux";
 import Department, { DepartmentStaffs } from "./Components/DepartmentComponent";
 import Payroll from "./Components/PayrollComponent";
 import { AddStaff } from "./Components/AddStaff";
@@ -18,7 +17,6 @@ import {
   postStaff,
   toggleForm,
   searchStaff,
-  deleteStaff,
 } from "./redux/ActionCreators";
 
 function App() {
@@ -55,16 +53,23 @@ function App() {
     staffSalaryScale,
     staffStartDate,
     staffDepartment,
-    staffAnnualLeave
+    staffAnnualLeave,
+    overTime = 0,
+    salary
   ) => {
+    const staffDepartmentId = departments.find(
+      (department) => department.name === staffDepartment
+    ).id;
     dispatch(
       postStaff(
         staffName,
         staffDob,
         staffSalaryScale,
         staffStartDate,
-        staffDepartment,
-        staffAnnualLeave
+        staffDepartmentId,
+        staffAnnualLeave,
+        overTime,
+        salary
       )
     );
   };
@@ -120,7 +125,12 @@ function App() {
         <Route
           path="/nhanvien/:id"
           element={
-            <StaffId staffs={staffs} isLoading={isLoading} errMess={errMess} />
+            <StaffId
+              staffs={staffs}
+              isLoading={isLoading}
+              errMess={errMess}
+              departments={departments}
+            />
           }
         />
         <Route

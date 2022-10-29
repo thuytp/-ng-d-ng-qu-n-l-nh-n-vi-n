@@ -167,7 +167,7 @@ export const AddStaff = (props) => {
                 id="department"
                 name="departmentInput"
                 onChange={changeHandler}
-                invalid={errors.startDate !== undefined}
+                invalid={errors.department !== undefined}
               >
                 <option value="Default" disabled>
                   Chọn phòng ban

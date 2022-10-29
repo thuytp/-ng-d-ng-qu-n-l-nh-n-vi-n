@@ -36,7 +36,9 @@ export const fetchStaffs = () => (dispatch) => {
       }
     )
     .then((response) => response.json())
-    .then((staffs) => dispatch(addStaffs(staffs)))
+    .then((staffs) => {
+      dispatch(addStaffs(staffs));
+    })
     .catch((error) => dispatch(staffsFailed(error.message)));
 };
 
@@ -74,7 +76,9 @@ export const fetchDepartments = () => (dispatch) => {
       }
     )
     .then((response) => response.json())
-    .then((departments) => dispatch(addDepartments(departments)))
+    .then((departments) => {
+      dispatch(addDepartments(departments));
+    })
     .catch((error) => dispatch(departmentsFailed(error.message)));
 };
 
@@ -128,7 +132,9 @@ export const postStaff =
     staffSalaryScale,
     staffStartDate,
     staffDepartment,
-    staffAnnualLeave
+    staffAnnualLeave,
+    overTime,
+    salary
   ) =>
   (dispatch) => {
     const newStaff = {
@@ -136,9 +142,11 @@ export const postStaff =
       doB: staffDob,
       salaryScale: staffSalaryScale,
       startDate: staffStartDate,
-      department: staffDepartment,
+      departmentId: staffDepartment,
       annualLeave: staffAnnualLeave,
       image: "/assets/images/alberto.png",
+      overTime: overTime,
+      salary: salary,
     };
     return fetch(baseUrl + "staffs", {
       method: "POST",
@@ -163,7 +171,9 @@ export const postStaff =
         }
       )
       .then((response) => response.json())
-      .then((staff) => dispatch(addStaff(staff)))
+      .then((staff) => {
+        dispatch(addStaff(staff));
+      })
       .catch((error) => alert("Cannot post new staff" + error.message));
   };
 

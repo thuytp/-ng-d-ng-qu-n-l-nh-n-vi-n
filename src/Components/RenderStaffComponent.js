@@ -33,7 +33,7 @@ function RenderStaff(props) {
             <CardText>
               Ngày vào công ty: {dateFormat(startDate, "dd/mm/yyyy")}{" "}
             </CardText>
-            <CardText>Phòng ban: {props.staff.department}</CardText>
+            <CardText>Phòng ban: {props.department.name}</CardText>
             <CardText>
               Số ngày nghỉ còn lại: {props.staff.annualLeave}{" "}
             </CardText>
@@ -67,6 +67,9 @@ function StaffId(props) {
     return (
       <RenderStaff
         staff={props.staffs.find((item) => item.id === parseInt(id, 10))}
+        department={props.departments.find(
+          (department) => department.id === props.staffs[id].departmentId
+        )}
       />
     );
 }

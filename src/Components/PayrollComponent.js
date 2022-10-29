@@ -14,11 +14,11 @@ function Payroll(props) {
       <div key={staff.id} className="col-12 col-md-6 col-lg-4">
         <Card className="m-1">
           <CardTitle>{staff.name}</CardTitle>
-          <CardText>
+          <div className="card-text">
             <div>Mã nhân viên: {staff.id}</div>
             <div>Hệ số lương: {staff.salaryScale}</div>
             <div>Số ngày làm thêm: {staff.overTime}</div>
-          </CardText>
+          </div>
           <CardFooter>
             Lương:{" "}
             {(staff.salaryScale * 3000000 + staff.overTime * 200000).toFixed(0)}
