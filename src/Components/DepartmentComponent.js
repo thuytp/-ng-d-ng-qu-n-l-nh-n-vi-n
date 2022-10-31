@@ -54,7 +54,6 @@ export const DepartmentStaffs = (props) => {
     (department) => department.id === departmentStaffs[0].departmentId
   );
 
-  console.log(activeDept);
   return (
     <div className="container">
       <div className="row">

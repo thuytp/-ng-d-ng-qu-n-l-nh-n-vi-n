@@ -37,7 +37,27 @@
   }
 } */
 .navbar-dark {
-  background-color: rgb(0, 0, 255);
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+  padding: 0;
+}
+.container {
+  padding: 1vw;
+}
+.btn {
+  color: white;
+  background-color: #09203f;
+  border: none;
+}
+h5 {
+  color: #09203f;
+}
+.card {
+  background-color: #abbdc9;
+  border: none;
+  padding: 1vw;
+}
+.card-img {
+  margin-bottom: 0.5vw;
 }
 .footer {
   background-color: #58a1eb;
@@ -47,7 +67,50 @@
 .card-title {
   font-weight: bold;
   font-size: 150%;
+  color: #09203f;
+}
+.breadcrumb-item > a {
+  color: #09203f;
+  font-weight: bold;
 }
 .card-text {
   margin-left: 1.25rem;
+}
+.card-footer {
+  background-color: #9aaab6;
+  border: none;
+}
+.page-enter {
+  opacity: 1;
+  transform: translateX(-120%);
+  transition: all 800ms ease-out;
+}
+.page-enter-active {
+  opacity: 1;
+  /* transition: transform 200ms linear;
+  transform: translateX(-100%); */
+}
+.page-enter-done {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 800ms ease-out;
+}
+.page-exit {
+  opacity: 0;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: 500ms;
+}
+.page-exit-done {
+  opacity: 0;
+}
+.fade-appear {
+  opacity: 0;
+  transform: scale(0.2);
+}
+.fade-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 1000ms;
 }

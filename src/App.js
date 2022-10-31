@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 import { useEffect } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
 import StaffList from "./Components/StaffList";
 import StaffId from "./Components/RenderStaffComponent";
 import Header from "./Components/HeaderComponent";
@@ -18,6 +20,7 @@ import {
   toggleForm,
   searchStaff,
 } from "./redux/ActionCreators";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,76 +81,82 @@ function App() {
     dispatch(searchStaff(filteredList));
   };
 
+  const location = useLocation();
+
+  console.log(location);
+
   return (
     <div className="App">
       <Header />
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <StaffList
-              staffs={staffs}
-              search={search}
-              isLoading={isLoading}
-              errMess={errMess}
-              onSearch={onSearch}
-              toggleForm={showForm}
+      <TransitionGroup>
+        <CSSTransition key={location.key} classNames="page" timeout={500}>
+          <Routes location={location}>
+            <Route
+              path="/"
+              element={
+                <StaffList
+                  staffs={staffs}
+                  search={search}
+                  isLoading={isLoading}
+                  errMess={errMess}
+                  onSearch={onSearch}
+                  toggleForm={showForm}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/phongban"
-          element={
-            <Department
-              staffs={staffs}
-              departments={departments}
-              isLoading={departmentsIsLoading}
-              errMess={departmentsErrMess}
+            <Route
+              path="/phongban"
+              element={
+                <Department
+                  staffs={staffs}
+                  departments={departments}
+                  isLoading={departmentsIsLoading}
+                  errMess={departmentsErrMess}
+                />
+              }
+            ></Route>
+            <Route path="/bangluong" element={<Payroll staffs={salary} />} />
+            <Route
+              exact
+              path="/nhanvien"
+              element={
+                <StaffList
+                  staffs={staffs}
+                  search={search}
+                  isLoading={isLoading}
+                  errMess={errMess}
+                  onSearch={onSearch}
+                  toggleForm={showForm}
+                />
+              }
             />
-          }
-        ></Route>
-        <Route path="/bangluong" element={<Payroll staffs={salary} />} />
-        <Route
-          exact
-          path="/nhanvien"
-          element={
-            <StaffList
-              staffs={staffs}
-              search={search}
-              isLoading={isLoading}
-              errMess={errMess}
-              onSearch={onSearch}
-              toggleForm={showForm}
+            <Route
+              path="/nhanvien/:id"
+              element={
+                <StaffId
+                  staffs={staffs}
+                  isLoading={isLoading}
+                  errMess={errMess}
+                  departments={departments}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/nhanvien/:id"
-          element={
-            <StaffId
-              staffs={staffs}
-              isLoading={isLoading}
-              errMess={errMess}
-              departments={departments}
+            <Route
+              path="/phongban/:departmentId"
+              element={
+                <DepartmentStaffs staffs={staffs} departments={departments} />
+              }
             />
-          }
-        />
-        <Route
-          path="/phongban/:departmentId"
-          element={
-            <DepartmentStaffs staffs={staffs} departments={departments} />
-          }
-        />
-      </Routes>
-
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
       <AddStaff
         onAddStaff={addStaffHandler}
         formStatus={formStatus}
         toggleForm={showForm}
       />
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

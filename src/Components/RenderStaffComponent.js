@@ -8,6 +8,7 @@ import {
 import { Link, useParams } from "react-router-dom";
 import dateFormat from "dateformat";
 import { Loading } from "./LoadingComponent";
+import { CSSTransition } from "react-transition-group";
 
 function RenderStaff(props) {
   const birthDay = new Date(props.staff.doB);
@@ -65,12 +66,14 @@ function StaffId(props) {
     );
   } else if (props.staffs != null)
     return (
-      <RenderStaff
-        staff={props.staffs.find((item) => item.id === parseInt(id, 10))}
-        department={props.departments.find(
-          (department) => department.id === props.staffs[id].departmentId
-        )}
-      />
+      <CSSTransition in={true} timeout={1000} classNames="fade" appear={true}>
+        <RenderStaff
+          staff={props.staffs.find((item) => item.id === parseInt(id, 10))}
+          department={props.departments.find(
+            (department) => department.id === props.staffs[id].departmentId
+          )}
+        />
+      </CSSTransition>
     );
 }
 
