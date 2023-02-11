@@ -62,15 +62,15 @@ function StaffList(props) {
           <div className="">
             <h2>Nhân Viên</h2>
           </div>
-          <div className=" ">
-            <Button onClick={props.toggleForm}>
-              <span className="fa fa-plus fa-lg " />
-            </Button>
-          </div>
+
           <div className="">
             <Form onSubmit={handleSubmit}>
-              <input type="text" ref={searchInputRef}></input>
-              <Button type="submit" className="bg-primary">
+              <input
+                type="text"
+                ref={searchInputRef}
+                style={{ marginRight: "10px" }}
+              ></input>
+              <Button type="submit" className="button-custom">
                 Tìm
               </Button>
             </Form>
@@ -81,6 +81,18 @@ function StaffList(props) {
           <StaffName
             list={props.search.length !== 0 ? props.search : props.staffs}
           />
+          <div
+            className="col-6 col-md-4 col-lg-2"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button onClick={props.toggleForm} className="button-custom ">
+              <span className="fa fa-plus fa-lg " />
+            </Button>
+          </div>
         </div>
       </div>
     );

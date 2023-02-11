@@ -1,6 +1,5 @@
 import * as ActionTypes from "./ActionTypes";
 import { baseUrl } from "../shared/baseUrl";
-import { push } from "react-router-redux";
 
 export const staffsLoading = () => ({
   type: ActionTypes.STAFFS_LOADING,

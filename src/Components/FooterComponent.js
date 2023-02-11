@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Footer(props) {
   return (
     <div className="footer">
       <div className="container">
+        <hr />
         <div className="row align-items-center  text-left">
           <div className="col-12 col-md-5 offset-1">
             <h5>Our Address</h5>
@@ -59,11 +59,6 @@ function Footer(props) {
                 <i className="fa fa-envelope-o"></i>
               </a>
             </div>
-          </div>
-        </div>
-        <div className="row justify-content-center">
-          <div className="col-auto">
-            <p>© Copyright 2018 Ristorante Con Fusion</p>
           </div>
         </div>
       </div>

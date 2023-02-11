@@ -36,18 +36,39 @@
     transform: rotate(360deg);
   }
 } */
+.App {
+  background-color: rgb(245, 245, 245);
+}
+.App > .container {
+  margin: 20px auto;
+}
 .navbar-dark {
-  background-color: rgb(0, 0, 255);
+  background-color: #006400;
 }
 .footer {
-  background-color: #58a1eb;
-  margin: 0px auto;
-  padding: 20px 0px 20px 0px;
+  padding: 0px auto 20px;
 }
+
 .card-title {
   font-weight: bold;
   font-size: 150%;
 }
 .card-text {
   margin-left: 1.25rem;
+}
+.button-custom {
+  background-color: #006400;
+  border: none;
+}
+.button-custom:hover {
+  background-color: rgb(4, 170, 109);
+}
+
+a {
+  color: #006400;
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(4, 170, 109);
 }

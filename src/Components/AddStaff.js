@@ -103,7 +103,6 @@ export const AddStaff = (props) => {
   return (
     <Modal isOpen={props.formStatus} toggle={props.toggleForm}>
       <ModalHeader>Thêm Nhân Viên</ModalHeader>
-      <hr />
       <ModalBody>
         <Form onSubmit={addStaffHandler}>
           <FormGroup row>
@@ -213,7 +212,7 @@ export const AddStaff = (props) => {
               <FormFeedback>{errors.annualLeave}</FormFeedback>
             </Col>
           </FormGroup>
-          <Button type="submit" value="submit" className="bg-primary">
+          <Button type="submit" value="submit" className="button-custom ">
             Thêm
           </Button>
         </Form>
